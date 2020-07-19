@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::post(config('paystack.webhookUrl', '/paystack/hook'), '\Xeviant\LaravelPaystack\Controllers\WebHookController@handleWebHook');
+Route::post(config('paystack.webhookUrl', '/paystack/hook'), '\Xeviant\LaravelPaystack\Controllers\WebHookController@handleWebHook')->name('xeviant.paystack.webhook');

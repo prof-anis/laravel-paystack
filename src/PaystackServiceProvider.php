@@ -42,6 +42,9 @@ class PaystackServiceProvider extends ServiceProvider
         $this->setupConfig();
         $this->loadRoutes();
         $this->loadMigrations();
+        $this->registerCommands();
+
+
     }
 
     /**
@@ -154,5 +157,13 @@ class PaystackServiceProvider extends ServiceProvider
             'laravel-paystack',
             'paystack.connection',
         ];
+    }
+
+    public function registerCommands(){
+        if ($this->app->runningInConsole()) {
+                $this->commands([
+                    \Xeviant\LaravelPaystack\Console\SamplePay::class,
+            ]);
+        }
     }
 }
